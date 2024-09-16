@@ -24,12 +24,15 @@
       "require": "./dist/index.cjs"
     }
   },
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
-  "main": "./dist/index.cjs",
-  "types": "./dist/index.d.ts",
   "scripts": {
     "stub": "unbuild --stub",
     "build": "unbuild",
