@@ -1,7 +1,7 @@
 {
   "name": "@uxuip/emitter",
   "type": "module",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple event emitter/pubsub library. return `unbind` function.",
   "author": "uxuip <uxuip@outlook.com>",
   "license": "MIT",
