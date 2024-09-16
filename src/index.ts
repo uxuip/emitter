@@ -1,10 +1,6 @@
 export type EventType = string | number | symbol
 export type EventsMap = Record<EventType, any[]>
-
-export interface Unsubscribe {
-  (): void
-}
-
+export type Unsubscribe = () => void
 export type Handler<T extends any[] = any[]> = (...event: T) => void
 
 export const createEmitter = <
