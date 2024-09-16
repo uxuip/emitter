@@ -1,7 +1,7 @@
 {
   "name": "@uxuip/emitter",
   "type": "module",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "packageManager": "pnpm@9.6.0",
   "description": "Simple event emitter/pubsub library. return `unbind` function.",
   "author": "uxuip <uxuip@outlook.com>",
