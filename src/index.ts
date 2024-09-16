@@ -7,29 +7,33 @@ export interface Unsubscribe {
 
 export type Handler<T extends any[] = any[]> = (...event: T) => void
 
-export const createEmitter = <Events extends EventsMap = EventsMap>() => {
-  const listens = new Map<keyof Events, Set<Handler>>()
+export const createEmitter = <
+  Events extends EventsMap = EventsMap,
+  K extends keyof Events = keyof Events,
+  H extends Handler = Handler<Events[K]>,
+>() => {
+  const listens = new Map<K, Set<H>>()
 
-  function on<K extends keyof Events>(type: K, handler: Handler<Events[K]>): Unsubscribe {
-    const handlers = listens.get(type)
-    handlers ? handlers.add(handler) : listens.set(type, new Set([handler]))
-    return () => off(type, handler)
-  }
-
-  function emit<K extends keyof Events>(type: K, ...event: Events[K]): void {
-    const handlers = listens.get(type)
-    if (handlers) {
-      handlers.forEach(handler => handler(...event))
-    }
-  }
-
-  function off<K extends keyof Events>(type: K, handler?: Handler<Events[K]>) {
+  const off = (type: K, handler?: H): void => {
     const handlers = listens.get(type)
 
     if (handlers) {
       handler
         ? handlers.delete(handler)
         : handlers.clear()
+    }
+  }
+
+  const on = (type: K, handler: H): Unsubscribe => {
+    const handlers = listens.get(type)
+    handlers ? handlers.add(handler) : listens.set(type, new Set([handler]))
+    return () => off(type, handler)
+  }
+
+  const emit = (type: K, ...event: Events[K]): void => {
+    const handlers = listens.get(type)
+    if (handlers) {
+      handlers.forEach(handler => handler(...event))
     }
   }
 
