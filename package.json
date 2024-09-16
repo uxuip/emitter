@@ -37,10 +37,12 @@
     "stub": "unbuild --stub",
     "build": "unbuild",
     "test": "vitest",
-    "prepare": "vitest --run && pnpm build"
+    "prepare": "vitest --run && pnpm build",
+    "bump": "bumpp --no-push"
   },
   "devDependencies": {
     "@uxuip/eslint-config": "^3.0.1",
+    "bumpp": "^9.5.2",
     "eslint": "^9.10.0",
     "typescript": "^5.6.2",
     "unbuild": "^2.0.0",
