@@ -45,16 +45,14 @@ accepts interface with event name
 to listener argument types mapping.
 
 ```ts
-import { createEmitter, EventsMap } from '@uxuip/emitter'
+import { createEmitter } from '@uxuip/emitter'
 
-interface Events extends EventsMap {
+type Events = {
   set: [name: string, count: number]
   plus: [number, number]
   push: [...number[]]
   call: []
 }
-// or
-// type Events = {}
 
 const emitter = createEmitter<Events>()
 
