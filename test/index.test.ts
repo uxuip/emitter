@@ -76,7 +76,7 @@ it('off listener', () => {
   const emitter = createEmitter()
   const result: number[] = []
 
-  function calc(value1, value2) {
+  function calc(value1: number, value2: number) {
     result.push(value1 + value2)
   }
   emitter.on('tick', calc)
@@ -92,10 +92,10 @@ it('off listeners', () => {
   const emitter = createEmitter()
   const result: number[] = []
 
-  function calc1(value1, value2) {
+  function calc1(value1: number, value2: number) {
     result.push(value1 + value2)
   }
-  function calc2(value1, value2) {
+  function calc2(value1: number, value2: number) {
     result.push(value1 + value2)
   }
 
