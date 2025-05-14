@@ -2,7 +2,7 @@
   "name": "@uxuip/emitter",
   "type": "module",
   "version": "1.0.5",
-  "packageManager": "pnpm@9.6.0",
+  "packageManager": "pnpm@10.10.0",
   "description": "Simple event emitter/pubsub library. return `unbind` function.",
   "author": "uxuip <uxuip@outlook.com>",
   "license": "MIT",
@@ -39,16 +39,16 @@
     "stub": "unbuild --stub",
     "build": "unbuild",
     "test": "vitest",
-    "prepare": "vitest --run && pnpm build",
+    "prepack": "vitest --run && pnpm build",
     "bump": "bumpp --no-push",
     "release": "pnpm publish"
   },
   "devDependencies": {
-    "@uxuip/eslint-config": "^3.0.1",
-    "bumpp": "^9.5.2",
-    "eslint": "^9.10.0",
-    "typescript": "^5.6.2",
-    "unbuild": "^2.0.0",
-    "vitest": "^2.1.1"
+    "@uxuip/eslint-config": "^4.0.0",
+    "bumpp": "^10.1.0",
+    "eslint": "^9.26.0",
+    "typescript": "^5.8.3",
+    "unbuild": "^3.5.0",
+    "vitest": "^3.1.3"
   }
 }
