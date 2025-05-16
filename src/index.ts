@@ -22,7 +22,7 @@ export const createEmitter = <Events extends EventsMap = EventsMap>() => {
     return () => off(type, handler)
   }
 
-  const emit = <K extends keyof Events>(type: K, ...event: Events[K]): void => {
+  const emit = <K extends keyof Events>(type: K, ...event: K extends any ? any[] : Events[K]): void => {
     const handlers = listens.get(type)
     if (handlers) {
       handlers.forEach(handler => handler(...event))
