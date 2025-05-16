@@ -151,3 +151,18 @@ it('removes listener during event', () => {
   ee.emit('event')
   expect(calls).toEqual([1, 2])
 })
+
+it('any event', () => {
+  const emitter = createEmitter<{
+    type: []
+  }>()
+  const result: number[] = []
+  emitter.on<any>('any', (value) => {
+    result.push(value)
+  })
+
+  emitter.emit<any>('any', 1)
+  emitter.off<any>('any')
+
+  expect(result).toEqual([1])
+})
